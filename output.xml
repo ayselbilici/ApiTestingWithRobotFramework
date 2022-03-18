@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.3 on darwin)" generated="20220318 23:03:10.527" rpa="false" schemaversion="2">
+<suite id="s1" name="Api" source="/Users/ayselbilici/Desktop/ApiTestWithRobotFramework/api.robot">
+<test id="s1-t1" name="Gorest Get Request">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysesion</arg>
+<arg>${base_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220318 23:03:10.694" level="INFO">Creating Session using : alias=mysesion, url=https://gorest.co.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220318 23:03:10.694" endtime="20220318 23:03:10.694"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>mysesion</arg>
+<arg>${endpoint}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20220318 23:03:11.823" level="INFO">GET Request : url=https://gorest.co.in/public/v1/users 
+ path_url=/public/v1/users 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220318 23:03:11.823" level="INFO">GET Response : url=https://gorest.co.in/public/v1/users 
+ status=200, reason=OK 
+ headers={'Server': 'nginx', 'Date': 'Fri, 18 Mar 2022 20:03:12 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding, Origin', 'X-Frame-Options': 'SAMEORIGIN', 'X-XSS-Protection': '0', 'X-Content-Type-Options': 'nosniff', 'X-Download-Options': 'noopen', 'X-Permitted-Cross-Domain-Policies': 'none', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'ETag': 'W/"8e121b6faf620a31ec8be5a8edaebb68"', 'Cache-Control': 'max-age=0, private, must-revalidate', 'X-Request-Id': '1dbfb3e5-7255-45e5-971d-5051fc9f4307', 'X-Runtime': '0.009719', 'Strict-Transport-Security': 'max-age=63072000; includeSubDomains', 'Content-Encoding': 'gzip'} 
+ body={"meta":{"pagination":{"total":2256,"pages":113,"page":1,"limit":20,"links":{"previous":null,"current":"https://gorest.co.in/public/v1/users?page=1","next":"https://gorest.co.in/public/v1/users?page=2"}}},"data":[{"id":2425,"name":"Bhramar Kaul","email":"bhramar_kaul@parisian-lebsack.com","gender":"male","status":"inactive"},{"id":2421,"name":"Amb. Arya Achari","email":"arya_achari_amb@padberg.co","gender":"male","status":"inactive"},{"id":2420,"name":"Divjot Pillai","email":"divjot_pillai@lind.name","gender":"female","status":"active"},{"id":2419,"name":"Chandni Chaturvedi","email":"chaturvedi_chandni@volkman-damore.biz","gender":"male","status":"inactive"},{"id":2418,"name":"Siddarth Iyer Jr.","email":"iyer_siddarth_jr@shanahan.net","gender":"male","status":"active"},{"id":2416,"name":"Dhyaneshwar Trivedi II","email":"trivedi_ii_dhyaneshwar@johnson-heidenreich.biz","gender":"male","status":"active"},{"id":2415,"name":"Dwaipayan Jha","email":"dwaipayan_jha@schinner.io","gender":"female","status":"inactive"},{"id":2414,"name":"Deenabandhu Nayar IV","email":"iv_nayar_deenabandhu@dibbert.com","gender":"female","status":"inactive"},{"id":2413,"name":"Chanakya Shah","email":"chanakya_shah@schroeder.com","gender":"male","status":"inactive"},{"id":2412,"name":"Aalok Gill","email":"aalok_gill@ankunding.biz","gender":"female","status":"active"},{"id":2411,"name":"Devasree Iyer Jr.","email":"devasree_jr_iyer@stamm-bogisich.name","gender":"male","status":"inactive"},{"id":2410,"name":"Dharitri Mishra","email":"mishra_dharitri@auer-howe.com","gender":"female","status":"active"},{"id":2409,"name":"Vishwamitra Varma","email":"varma_vishwamitra@hoeger-toy.name","gender":"female","status":"inactive"},{"id":2408,"name":"Balgopal Kapoor","email":"kapoor_balgopal@marks.name","gender":"female","status":"inactive"},{"id":2407,"name":"Naveen Pandey VM","email":"naveen_vm_pandey@reinger.name","gender":"female","status":"active"},{"id":2405,"name":"Gauraang Varrier","email":"gauraang_varrier@hessel.org","gender":"female","status":"inactive"},{"id":2404,"name":"Kanak Menon","email":"kanak_menon@waters.net","gender":"male","status":"active"},{"id":2403,"name":"Rev. Vidur Abbott","email":"vidur_abbott_rev@von.info","gender":"female","status":"active"},{"id":2402,"name":"Daksha Johar","email":"daksha_johar@bechtelar-jaskolski.name","gender":"male","status":"inactive"},{"id":2401,"name":"Vedanshi Malik","email":"vedanshi_malik@pfannerstill-king.biz","gender":"male","status":"active"}]} 
+ </msg>
+<msg timestamp="20220318 23:03:11.823" level="INFO">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/urllib3/connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'gorest.co.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220318 23:03:11.823" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220318 23:03:10.695" endtime="20220318 23:03:11.823"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20220318 23:03:11.824" level="INFO">Length is 2502</msg>
+<status status="PASS" starttime="20220318 23:03:11.824" endtime="20220318 23:03:11.824"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220318 23:03:11.824" endtime="20220318 23:03:11.824"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${json_response}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220318 23:03:11.825" level="INFO">${json_response} = {'meta': {'pagination': {'total': 2256, 'pages': 113, 'page': 1, 'limit': 20, 'links': {'previous': None, 'current': 'https://gorest.co.in/public/v1/users?page=1', 'next': 'https://gorest.co.in/public...</msg>
+<status status="PASS" starttime="20220318 23:03:11.825" endtime="20220318 23:03:11.825"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${total}</var>
+<arg>${json_response}</arg>
+<arg>meta.pagination.total</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20220318 23:03:11.849" level="INFO">${total} = [2256]</msg>
+<status status="PASS" starttime="20220318 23:03:11.825" endtime="20220318 23:03:11.849"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${pages}</var>
+<arg>${json_response}</arg>
+<arg>meta.pagination.pages</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20220318 23:03:11.868" level="INFO">${pages} = [113]</msg>
+<status status="PASS" starttime="20220318 23:03:11.849" endtime="20220318 23:03:11.868"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${page}</var>
+<arg>${json_response}</arg>
+<arg>meta.pagination.page</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20220318 23:03:11.889" level="INFO">${page} = [1]</msg>
+<status status="PASS" starttime="20220318 23:03:11.869" endtime="20220318 23:03:11.889"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${limit}</var>
+<arg>${json_response}</arg>
+<arg>meta.pagination.limit</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20220318 23:03:11.908" level="INFO">${limit} = [20]</msg>
+<status status="PASS" starttime="20220318 23:03:11.889" endtime="20220318 23:03:11.908"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>{total}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20220318 23:03:11.908" level="INFO">Length is 7</msg>
+<status status="PASS" starttime="20220318 23:03:11.908" endtime="20220318 23:03:11.908"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>{pages}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20220318 23:03:11.909" level="INFO">Length is 7</msg>
+<status status="PASS" starttime="20220318 23:03:11.908" endtime="20220318 23:03:11.909"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>{page}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20220318 23:03:11.909" level="INFO">Length is 6</msg>
+<status status="PASS" starttime="20220318 23:03:11.909" endtime="20220318 23:03:11.909"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>{limit}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20220318 23:03:11.909" level="INFO">Length is 7</msg>
+<status status="PASS" starttime="20220318 23:03:11.909" endtime="20220318 23:03:11.909"/>
+</kw>
+<status status="PASS" starttime="20220318 23:03:10.693" endtime="20220318 23:03:11.909"/>
+</test>
+<status status="PASS" starttime="20220318 23:03:10.534" endtime="20220318 23:03:11.910"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Api">Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
